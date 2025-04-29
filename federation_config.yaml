@@ -1,0 +1,6 @@
+peers:
+  - url: "http://peer1.local:8000"
+  - url: "http://peer2.local:8000"
+exchange_endpoint: "/exchange_soul"
+merge_memory: true
+interval: "24h"

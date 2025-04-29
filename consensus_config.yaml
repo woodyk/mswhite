@@ -1,0 +1,4 @@
+merge_policy: "last_write_wins"  # options: last_write_wins, host_priority
+host_priority:
+  - "hostA.local"
+  - "hostB.local"

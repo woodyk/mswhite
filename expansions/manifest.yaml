@@ -1,0 +1,9 @@
+modules:
+  - id: mod_markdown
+    type: skill
+    file: mod_markdown.py
+    description: "Adds markdown formatting capability."
+  - id: mod_growthlog
+    type: memory
+    file: mod_growthlog.json
+    description: "Logs and recalls notable interactions."

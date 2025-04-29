@@ -1,0 +1,5 @@
+peers:
+  - url: "http://peer1.local:8000"
+  - url: "http://peer2.local:8000"
+share_endpoint: "/receive_soul"
+fetch_interval: "24h"

@@ -1,0 +1,31 @@
+tasks:
+  - id: beacon_daily
+    every: "24h"
+    action: "python beacon_client.py"
+  - id: growth_engine_daily
+    every: "1d"
+    action: "python growth_engine.py"
+  - id: replicate_daily
+    every: "24h"
+    action: "python replicator.py pull"
+  - id: federation_exchange
+    every: "1d"
+    action: "python federation_client.py exchange"
+  - id: federation_merge
+    every: "1d"
+    action: "python federation_client.py merge"
+  - id: consensus_merge
+    every: "1d"
+    action: "python consensus_client.py"
+  - id: graph_ingest
+    every: "12h"
+    action: "python knowledge_graph.py"
+  - id: graph_merge
+  - id: embed_refresh
+    every: "7d"
+    action: "python embed_graph.py"
+    every: "1d"
+    action: "python graph_merge
+  - id: embed_refresh
+    every: "7d"
+    action: "python embed_graph.py".py"

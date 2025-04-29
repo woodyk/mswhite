@@ -1,0 +1,5 @@
+sources:
+  - id: mod_remote_math
+    type: skill
+    url: "https://example.com/soulmods/mod_remote_math.py"
+    sig: "https://example.com/soulmods/mod_remote_math.py.sig"
