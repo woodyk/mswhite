@@ -1,5 +1,4 @@
 import json, networkx as nx
-
 def read(path):
     data = json.load(open(path))
     G = nx.Graph()
