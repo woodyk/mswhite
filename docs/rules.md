@@ -6,23 +6,19 @@
 IF (<triple>) AND (<triple>) THEN (<triple>)
 ```
 
-Variables start with `?`
+## Authoring by Natural Language
 
-## Examples
-
-```
-IF (?X, type, person) AND (?X, projects, ?Y)
-THEN (?Y, has_owner, ?X)
-```
-
-## Usage
-
-Run inference:
+Example:
 ```bash
-python rule_cli.py run
+python nl_rule_cli.py "If a person manages a project, then they own it."
 ```
 
-Add a rule:
+This adds:
+```
+IF (?X, manages, ?Y) AND (?X, type, person) THEN (?Y, has_owner, ?X)
+```
+
+You may also run the translator alone:
 ```bash
-python rule_cli.py add-rule "IF (?X, likes, ?Y) THEN (?Y, admired_by, ?X)"
+python rule_naturalizer.py "If A supervises B then A is superior to B."
 ```

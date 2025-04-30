@@ -1,3 +1,2 @@
-soulpack_version: 2.1.0
-created_on: 2025-04-30T00:39:52.859911
-description: "Stable release with rule engine, CLI, and CI-tested inference."
+soulpack_version: 2.2-rc1
+created_on: 2025-04-30T00:44:55.677829
