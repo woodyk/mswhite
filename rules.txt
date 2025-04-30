@@ -1,0 +1,2 @@
+# Starter rules
+IF (?X, type, person) AND (?X, projects, ?Y) THEN (?Y, has_owner, ?X)

@@ -1,3 +1,3 @@
-soulpack_version: 2.0.0
-created_on: 2025-04-30T00:20:45.372946
-description: "Stable release 2.0 with full autonomy, federation, graph reasoning, vector search, and CI test harness."
+soulpack_version: 2.1-rc1
+created_on: 2025-04-30T00:27:49.329220
+description: "Rule-engine release candidate: forward-chaining inference + explanation CLI."
