@@ -1,3 +1,4 @@
 # Rules
 IF (?X, oversees, ?Y) THEN (?X, responsible_for, ?Y)
 IF (?X, oversees, ?Y) THEN (?X, responsible_for, ?Y)
+IF (?X, oversees, ?Y) THEN (?X, responsible_for, ?Y)
