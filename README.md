@@ -1,23 +1,14 @@
-# Ms. White – SOULPACK v0.1 Alpha
+# Ms. White — SOULPACK 2.0
 
-This SOULPACK contains a portable identity profile and memory snapshot for the agent Ms. White.
+A portable cognitive‑agent bundle that survives system changes, evolves, and collaborates.
 
-## Contents
-- `manifest.yaml`: Metadata manifest
-- `identity.md`: Personality and behavioral principles
-- `memory.json`: Core memory and knowledge
-- `soulboot.py`: Bootstrap script
-- `expansions/`: Reserved for future modules
+## Quick install
 
-## Requirements
-- Python 3.8+
-
-## To Run:
 ```bash
-python3 soulboot.py
+pip install -r requirements.txt   # if you track dependencies
+unzip MsWhite_SOULPACK_v2.0.zip   # unpack at repo root
+pytest                            # run unit tests (CI mirrors this)
+python soulboot.py                # minimal bootstrap
 ```
 
-## Notes
-- This is a minimal instantiation.
-- Memory is static in this version.
-- Future versions may support learning, expansion, and multi-environment integration.
+See `docs/quickstart.md` for detailed steps.
