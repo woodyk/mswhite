@@ -16,11 +16,10 @@ def top_k_nodes(query_vec, k=5):
         print("[WARN] No embeddings.json found.")
         return []
     emb = json.load(open(EMB_FILE))
-    if not emb:
-        print("[WARN] embeddings.json is empty.")
-        return []
     sims = []
     for node, vec in emb.items():
+        if not isinstance(vec, list) or len(vec) != 10:
+            continue
         v = np.array(vec)
         sim = float(np.dot(query_vec, v) / (norm(query_vec)*norm(v) + 1e-9))
         sims.append((sim, node))
