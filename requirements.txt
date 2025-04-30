@@ -1,6 +1,4 @@
-psutil
-cryptography
-requests
-PyYAML
+pytest
 networkx
 numpy
+cryptography
