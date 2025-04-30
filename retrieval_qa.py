@@ -12,8 +12,13 @@ def embed(text):
     return np.array([float(x) for x in nums[:10]])
 
 def top_k_nodes(query_vec, k=5):
-    if not os.path.exists(EMB_FILE): return []
+    if not os.path.exists(EMB_FILE):
+        print("[WARN] No embeddings.json found.")
+        return []
     emb = json.load(open(EMB_FILE))
+    if not emb:
+        print("[WARN] embeddings.json is empty.")
+        return []
     sims = []
     for node, vec in emb.items():
         v = np.array(vec)

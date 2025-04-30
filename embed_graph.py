@@ -1,33 +1,27 @@
-"""
-embed_graph.py - Generate vector embeddings for graph nodes using host_adapter.
-Stores embeddings in embeddings.json {node: [vector]}.
-"""
-
-import json, networkx as nx, subprocess, os, numpy as np
+import networkx as nx, subprocess, json, os
+import gjson
 
 GRAPH_FILE = "knowledge_graph.json"
 EMB_FILE = "embeddings.json"
 
-def embed_text(text: str):
-    # Use host_adapter to get embedding-like representation (simple: use LLM to output 10 floats)
-    prompt = f"Generate a 10-dim numeric embedding (comma separated) for: {text}"
-    response = subprocess.check_output(["python", "host_adapter.py", prompt], text=True)
-    try:
-        vec = [float(x) for x in response.strip().split(",")[:10]]
-    except:
-        vec = [0.0]*10
-    return vec
+def embed(text):
+    prompt = f"Give only 10 comma-separated floats for this embedding: {text}"
+    out = subprocess.check_output(["python", "host_adapter.py", prompt], text=True)
+    import re
+    vals = [float(x) for x in re.findall(r"-?\d+\.\d+", out)[:10]]
+    return vals
 
 def main():
     if not os.path.exists(GRAPH_FILE):
-        print("Graph missing. Run knowledge_graph.py first.")
+        print("[ERR] No graph file.")
         return
-    G = nx.read_gjson(GRAPH_FILE)
-    embeddings = {}
-    for node in G.nodes:
-        embeddings[node] = embed_text(node)
-    json.dump(embeddings, open(EMB_FILE,"w"), indent=2)
-    print(f"[OK] {len(embeddings)} embeddings stored.")
+    G = gjson.read(GRAPH_FILE)
+    emb = {}
+    for node in G.nodes():
+        emb[node] = embed(node)
+    with open(EMB_FILE, "w") as f:
+        json.dump(emb, f, indent=2)
+    print(f"[OK] Saved embeddings for {len(emb)} nodes.")
 
 if __name__ == "__main__":
     main()
