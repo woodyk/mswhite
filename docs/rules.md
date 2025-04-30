@@ -1,24 +1,29 @@
 # Rule Engine
 
-## Syntax
+## Manual Syntax
 
 ```
 IF (<triple>) AND (<triple>) THEN (<triple>)
 ```
 
+Example:
+```
+IF (?X, type, person) AND (?X, projects, ?Y)
+THEN (?Y, has_owner, ?X)
+```
+
 ## Authoring by Natural Language
 
-Example:
-```bash
-python nl_rule_cli.py "If a person manages a project, then they own it."
+```
+python nl_rule_cli.py "If a person oversees a project, they are responsible for it."
 ```
 
-This adds:
+→ Appends:
 ```
-IF (?X, manages, ?Y) AND (?X, type, person) THEN (?Y, has_owner, ?X)
+IF (?X, oversees, ?Y) THEN (?X, responsible_for, ?Y)
 ```
 
-You may also run the translator alone:
-```bash
-python rule_naturalizer.py "If A supervises B then A is superior to B."
+You can also preview:
+```
+python rule_naturalizer.py "If Alice supervises Bob, she is above him."
 ```

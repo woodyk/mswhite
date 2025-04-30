@@ -1,18 +1,2 @@
-# Rules added by naturalizer
-In SOULPACK rule syntax, you can express the statement "If a person oversees a project, they are responsible for it" as follows:
-
-```
-RULE: oversee_project_implies_responsibility
-IF 
-    Person(P) AND 
-    Oversees(P, Project)
-THEN 
-    Responsible(P, Project)
-```
-
-In this rule:
-- `Person(P)` denotes that P is a person.
-- `Oversees(P, Project)` indicates that P oversees a specific project.
-- `Responsible(P, Project)` shows that P is responsible for that project. 
-
-This syntax captures the conditional relationship between overseeing a project and being responsible for it.
+# Rules
+IF (?X, oversees, ?Y) THEN (?X, responsible_for, ?Y)
