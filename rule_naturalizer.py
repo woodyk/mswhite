@@ -11,6 +11,6 @@ def translate(nl):
 if __name__ == "__main__":
     import sys
     if len(sys.argv) < 2:
-        print("Usage: python rule_naturalizer.py "natural language rule"")
+        print('Usage: python rule_naturalizer.py "natural language rule"')
     else:
         print(translate(" ".join(sys.argv[1:])))
