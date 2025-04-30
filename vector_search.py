@@ -1,8 +1,16 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+#
+# File: vector_search.py
+# Author: Wadih Khairallah
+# Description: 
+# Created: 2025-04-29 21:41:38
 """
 vector_search.py - Semantic similarity search using embeddings.json
 Usage: python vector_search.py "query"
 """
 
+import os
 import json, numpy as np, sys
 from numpy.linalg import norm
 import subprocess

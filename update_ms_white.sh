@@ -4,7 +4,7 @@
 # Author: Wadih Khairallah
 # Description: 
 # Created: 2025-04-29 20:49:59
-# Modified: 2025-04-29 21:35:33
+# Modified: 2025-04-29 21:38:31
 
 # Exit on any error
 set -e
@@ -63,4 +63,5 @@ python rule_cli.py run
 echo "[🔢] Re-embedding..."
 python embed_graph.py
 echo "[✅] All systems refreshed."
+python retrieval_qa.py "What is Ms. White's role?"
 
