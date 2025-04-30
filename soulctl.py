@@ -45,6 +45,9 @@ def cmd_refresh():
     subprocess.run(["python", "rule_cli.py", "run"])
     subprocess.run(["python", "embed_graph.py"])
 
+def cmd_rules_suggest():
+    subprocess.run(["python", "rules_suggest.py"])
+
 def dispatch():
     parser = argparse.ArgumentParser(prog="soulctl", description="SOULPACK Command Interface")
     sub = parser.add_subparsers(dest="cmd")
@@ -56,11 +59,16 @@ def dispatch():
     qa = sub.add_parser("qa", help="Ask a question")
     qa.add_argument("text", nargs="+", help="Your question")
 
+    rules = sub.add_parser("rules", help="Rule-related operations")
+    rules_sub = rules.add_subparsers(dest="subcmd")
+    rules_sub.add_parser("suggest", help="Propose candidate rules from graph")
+
     args = parser.parse_args()
     if args.cmd == "teach": cmd_teach()
     elif args.cmd == "export": cmd_export()
     elif args.cmd == "refresh": cmd_refresh()
     elif args.cmd == "qa": cmd_qa(" ".join(args.text))
+    elif args.cmd == "rules" and args.subcmd == "suggest": cmd_rules_suggest()
     else: parser.print_help()
 
 if __name__ == "__main__":
