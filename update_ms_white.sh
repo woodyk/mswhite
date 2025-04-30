@@ -4,7 +4,7 @@
 # Author: Wadih Khairallah
 # Description: 
 # Created: 2025-04-29 20:49:59
-# Modified: 2025-04-29 21:21:08
+# Modified: 2025-04-29 21:35:33
 
 # Exit on any error
 set -e
@@ -55,3 +55,12 @@ if ! git push; then
 fi
 
 echo "Success: Archive '$zip' unzipped, committed, and pushed."
+
+echo "[🧠] Building graph..."
+python knowledge_graph.py
+echo "[⚙️] Running inference..."
+python rule_cli.py run
+echo "[🔢] Re-embedding..."
+python embed_graph.py
+echo "[✅] All systems refreshed."
+
