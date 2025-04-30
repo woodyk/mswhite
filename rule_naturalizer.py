@@ -4,7 +4,7 @@ rule_naturalizer.py – Translates natural language into SOULPACK rule syntax us
 import subprocess
 
 def translate(nl):
-    prompt = f"Convert this into SOULPACK rule syntax:\n"{nl}""
+    prompt = f"Convert this into SOULPACK rule syntax:\n\"{nl}\""
     out = subprocess.check_output(["python", "host_adapter.py", prompt], text=True)
     return out.strip()
 
